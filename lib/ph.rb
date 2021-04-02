@@ -9,28 +9,31 @@ class PH
   end
 
   def hash
-    # Get DCT2D of the pixels
-    dct_pixels = dct2d(pixels)
-    # Get high frequency corner
-    sqrt = Math.sqrt(size).to_i
-    coords = Array.new(2, sqrt)
-    corner = flat1d(coords, dct_pixels)
-    corner_size = corner.length
-    # Median values
-    med = median(corner)
-
-    result = Array.new(size, 0)
-
-    corner.each.with_index do |f, i|
-      # Compare each value to the median
-      result[i] = 1 if f > med
-    end
-
     # Binary to hex string
-    result.join.to_i(2).to_s(16)
+    vector.join.to_i(2).to_s(16)
   end
 
   def vector
+    @_vector ||= begin
+      # Get DCT2D of the pixels
+      dct_pixels = dct2d(pixels)
+      # Get high frequency corner
+      sqrt = Math.sqrt(size).to_i
+      coords = Array.new(2, sqrt)
+      corner = flat1d(coords, dct_pixels)
+      corner_size = corner.length
+      # Median values
+      med = median(corner)
+
+      result = Array.new(size, 0)
+
+      corner.each.with_index do |f, i|
+        # Compare each value to the median
+        result[i] = 1 if f > med
+      end
+
+      result
+    end
   end
 
   private
