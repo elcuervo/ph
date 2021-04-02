@@ -3,7 +3,7 @@
 default: test
 
 build:
-	rm *.gem
+	rm -f *.gem
 	gem build ph.gemspec
 
 publish: build
