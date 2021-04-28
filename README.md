@@ -13,6 +13,17 @@ gem install ph
 The way you get that pixel data is up to you. Different techniques can shield different values.
 Hashes exist on a similar space but different reads could yield different (subtle) hashes.
 
+### Distance
+
+Since hashes exist on a metric space you can measure how far a hash is from another.
+
+```ruby
+PH.distance(hash_a, hash_b)
+
+# You can also transform hashes based on your storage:
+PH.vector_to_hash(hash)
+PH.hash_to_vector(vector)
+```
 
 ### Vips
 
