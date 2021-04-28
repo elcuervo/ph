@@ -3,9 +3,23 @@
 class PH
   attr_reader :pixels, :size
 
-  def initialize(pixels_2d, size: 64)
+  NotGreyscaleError = Class.new(StandardError)
+  IncorrectDimensionsError = Class.new(StandardError)
+
+  def self.hash(pixels_2d)
+    new(pixels_2d).hash
+  end
+
+  def self.vector(pixels_2d)
+    new(pixels_2d).vector
+  end
+
+  def initialize(pixels_2d)
     @pixels = pixels_2d
-    @size = size
+    @size = pixels_2d.size
+
+    raise NotGreyscaleError if pixels_2d.flatten.count != @size**2
+    raise IncorrectDimensionsError if !(Math.sqrt(size) % 8).zero?
   end
 
   def hash
