@@ -16,13 +16,14 @@ Hashes exist on a similar space but different reads could yield different (subtl
 ### Distance
 
 Since hashes exist on a metric space you can measure how far a hash is from another.
+You can use the hamming gem for calculations if needed
 
 ```ruby
-PH.distance(hash_a, hash_b)
+Hamming.distance(hash_a, hash_b)
 
 # You can also transform hashes based on your storage:
-PH.vector_to_hash(hash)
-PH.hash_to_vector(vector)
+Hamming.vector_to_hash(hash)
+Hamming.hash_to_vector(vector)
 ```
 
 ### Vips

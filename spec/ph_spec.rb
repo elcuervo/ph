@@ -32,36 +32,4 @@ describe PH do
       assert_equal vector, subject.vector
     end
   end
-
-  describe "comparing hashes" do
-    let(:hash_a) { "859091ce633aaebb" }
-    let(:hash_b) { "859091ce633aaeba" }
-
-    let(:vector_a) do
-      [
-        1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1,
-        0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0,
-        1, 1
-      ]
-    end
-
-    let(:vector_b) do
-      [
-        1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1,
-        0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0,
-        1, 0
-      ]
-    end
-
-    it "conversion" do
-      assert_equal vector_a, PH.hash_to_vector(hash_a)
-      assert_equal hash_b, PH.vector_to_hash(vector_b)
-    end
-
-    it "#distance" do
-      assert_equal 0, PH.distance(vector_b, vector_b)
-      assert_equal 0, PH.distance(hash_a, hash_a)
-      assert_equal 1, PH.distance(hash_a, vector_b)
-    end
-  end
 end
