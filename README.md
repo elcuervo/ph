@@ -16,7 +16,7 @@ Hashes exist on a similar space but different reads could yield different (subtl
 ### Distance
 
 Since hashes exist on a metric space you can measure how far a hash is from another.
-You can use the [hamming gem](github.com/elcuervo/hamming) for calculations if needed
+You can use the [hamming gem](https://github.com/elcuervo/hamming) for calculations if needed
 
 ```ruby
 Hamming.distance(hash_a, hash_b)
