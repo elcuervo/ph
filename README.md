@@ -13,19 +13,6 @@ gem install ph
 The way you get that pixel data is up to you. Different techniques can shield different values.
 Hashes exist on a similar space but different reads could yield different (subtle) hashes.
 
-### Distance
-
-Since hashes exist on a metric space you can measure how far a hash is from another.
-You can use the [hamming gem](https://github.com/elcuervo/hamming) for calculations if needed
-
-```ruby
-Hamming.distance(hash_a, hash_b)
-
-# You can also transform hashes based on your storage:
-Hamming.vector_to_hash(hash)
-Hamming.hash_to_vector(vector)
-```
-
 ### Vips
 
 ```ruby
@@ -58,3 +45,17 @@ img = img
 PH.new(img).vector
 # => [1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1]
 ```
+
+### Distance
+
+Since hashes exist on a metric space you can measure how far a hash is from another.
+You can use the [hamming gem](https://github.com/elcuervo/hamming) for calculations if needed
+
+```ruby
+Hamming.distance(hash_a, hash_b)
+
+# You can also transform hashes based on your storage:
+Hamming.vector_to_hash(hash)
+Hamming.hash_to_vector(vector)
+```
+
