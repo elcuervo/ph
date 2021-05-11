@@ -1,6 +1,13 @@
 # PH
 _Perceptual Hashing_
 
+## What is it?
+
+Perceptual hashing is the technique to generate a fingerprint of an image.
+
+- https://en.wikipedia.org/wiki/Perceptual_hashing
+- http://hackerfactor.com/blog/index.php%3F/archives/432-Looks-Like-It.html
+
 ## Install
 
 ```bash
